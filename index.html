@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thimble Sourcing</title>
+  <title>My Cloudflare Site</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -20,34 +20,57 @@
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
-    .btn {
-      display: inline-block;
+    .email-box {
       margin-top: 30px;
-      padding: 12px 24px;
-      background-color: #0070f3;
-      color: white;
-      text-decoration: none;
-      font-size: 16px;
+      display: inline-block;
+      padding: 12px 20px;
+      background: white;
+      border: 2px solid #0070f3;
       border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      font-size: 16px;
+      color: #333;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      cursor: pointer;
+      user-select: none;
       transition: background 0.2s ease;
     }
-    .btn:hover {
-      background-color: #0059c1;
+    .email-box:hover {
+      background: #f0f8ff;
+    }
+    .copied {
+      margin-top: 10px;
+      color: green;
+      font-size: 14px;
+      display: none;
     }
   </style>
 </head>
 <body>
-  <h1>🏗️ Site under Construction</h1>
-  <p>We will be up soon!</p>
+  <h1><strong>Site under construction<strong></h1>
+  <p>We will be running soon</p>
   
   <!-- Your logo -->
   <img src="Logo.jpeg" alt="My Logo" />
 
-  <!-- Contact button -->
-  <div>
-    <a href="vijey@thimblesource.com" class="btn">Contact Me</a>
+  <!-- Click-to-copy Email -->
+  <div class="email-box" id="emailBox">
+    vijey@thimblesource.com
   </div>
+  <div class="copied" id="copiedMsg">✅ Email copied!</div>
+
+  <script>
+    const emailBox = document.getElementById("emailBox");
+    const copiedMsg = document.getElementById("copiedMsg");
+    const email = emailBox.innerText;
+
+    emailBox.addEventListener("click", () => {
+      navigator.clipboard.writeText(email).then(() => {
+        copiedMsg.style.display = "block";
+        setTimeout(() => {
+          copiedMsg.style.display = "none";
+        }, 2000);
+      });
+    });
+  </script>
 </body>
 </html>
-
