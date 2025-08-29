@@ -7,12 +7,23 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 50px;
+      margin: 0;
       background: #f7f7f7;
+      display: flex;
+      flex-direction: column;
+      align-items: center;  /* centers everything horizontally */
+      justify-content: flex-start; /* keep content stacked top-to-bottom */
+      min-height: 100vh;
+      text-align: center;
+      padding: 40px 20px;
     }
     h1 {
       color: #333;
+      margin-bottom: 10px;
+    }
+    p {
+      margin-top: 0;
+      margin-bottom: 20px;
     }
     img {
       max-width: 300px;
@@ -20,9 +31,12 @@
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
-    .email-box {
+    .email-container {
       margin-top: 30px;
-      display: inline-block;
+      text-align: center;
+    }
+    .email-box {
+      display: inline-block; /* keeps it centered properly */
       padding: 12px 20px;
       background: white;
       border: 2px solid #0070f3;
@@ -46,17 +60,19 @@
   </style>
 </head>
 <body>
-  <h1><strong>Site under construction<strong></h1>
-  <p>We will be running soon</p>
+  <h1>Site Under Construction</h1>
+  <p>We will be up shortly.</p>
   
   <!-- Your logo -->
   <img src="Logo.jpeg" alt="My Logo" />
 
-  <!-- Click-to-copy Email -->
-  <div class="email-box" id="emailBox">
-    vijey@thimblesource.com
+  <!-- Perfectly Centered Email Section -->
+  <div class="email-container">
+    <div class="email-box" id="emailBox">
+      vijey@thimblesource.com
+    </div>
+    <div class="copied" id="copiedMsg">✅ Email copied!</div>
   </div>
-  <div class="copied" id="copiedMsg">✅ Email copied!</div>
 
   <script>
     const emailBox = document.getElementById("emailBox");
